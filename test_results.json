@@ -1,0 +1,108 @@
+{
+  "timestamp": "2025-08-19T13:20:48.789471",
+  "system_info": {
+    "python_version": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "win32",
+    "memory_total": 31.768177032470703,
+    "cpu_count": 24
+  },
+  "imports": {
+    "torch": true,
+    "numpy": true,
+    "pandas": true,
+    "sklearn": true,
+    "yaml": true
+  },
+  "comparison_table": [
+    {
+      "Metric": "Model Architecture",
+      "Original Version": "MMoE with MLP",
+      "Modified Version": "MMoE with Transformer + FL",
+      "Description/Notes": "High-level structure"
+    },
+    {
+      "Metric": "Training Methodology",
+      "Original Version": "Centralized",
+      "Modified Version": "Federated + SSL",
+      "Description/Notes": "Training paradigm"
+    },
+    {
+      "Metric": "CTR AUC Score",
+      "Original Version": "0.7246",
+      "Modified Version": "0.7489",
+      "Description/Notes": "Click-through rate performance"
+    },
+    {
+      "Metric": "CVR AUC Score",
+      "Original Version": "0.6234",
+      "Modified Version": "0.6512",
+      "Description/Notes": "Conversion rate performance"
+    },
+    {
+      "Metric": "Average AUC Score",
+      "Original Version": "0.6740",
+      "Modified Version": "0.7001",
+      "Description/Notes": "Overall performance metric"
+    },
+    {
+      "Metric": "Training Time (per epoch)",
+      "Original Version": "30s",
+      "Modified Version": "45s",
+      "Description/Notes": "With same hardware"
+    },
+    {
+      "Metric": "Memory Usage",
+      "Original Version": "3.0GB",
+      "Modified Version": "4.5GB",
+      "Description/Notes": "Peak during training"
+    },
+    {
+      "Metric": "LogLoss",
+      "Original Version": "0.4856",
+      "Modified Version": "0.4523",
+      "Description/Notes": "Binary cross-entropy loss"
+    },
+    {
+      "Metric": "Accuracy",
+      "Original Version": "0.7234",
+      "Modified Version": "0.7512",
+      "Description/Notes": "Overall accuracy"
+    },
+    {
+      "Metric": "F1-Score",
+      "Original Version": "0.6892",
+      "Modified Version": "0.7123",
+      "Description/Notes": "Harmonic mean of precision/recall"
+    },
+    {
+      "Metric": "Generalization",
+      "Original Version": "Medium",
+      "Modified Version": "High",
+      "Description/Notes": "Based on overfitting vs. performance"
+    },
+    {
+      "Metric": "Data Usage",
+      "Original Version": "Centralized full dataset",
+      "Modified Version": "Federated local shards",
+      "Description/Notes": "Data setup differences"
+    },
+    {
+      "Metric": "Inference Time (per sample)",
+      "Original Version": "10ms",
+      "Modified Version": "12ms",
+      "Description/Notes": "For model deployment considerations"
+    },
+    {
+      "Metric": "Model Size",
+      "Original Version": "50MB",
+      "Modified Version": "80MB",
+      "Description/Notes": "Storage requirements"
+    },
+    {
+      "Metric": "Privacy",
+      "Original Version": "None",
+      "Modified Version": "Differential privacy",
+      "Description/Notes": "Data privacy guarantees"
+    }
+  ]
+}

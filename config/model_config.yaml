@@ -1,0 +1,99 @@
+Base:
+    batch_norm: false
+    batch_size: 2048
+    debug_mode: false
+    early_stop_patience: 3
+    embedding_regularizer: 1.0e-06
+    epochs: 4
+    eval_steps: null
+    expert_hidden_units: [512, 256]
+    expert_output_dim: 256
+    expert_type: transformer
+    feature_config: null
+    feature_specs: null
+    gate_hidden_units: [128, 64]
+    gate_input: mean
+    gate_dropout: 0.1
+    gate_entropy_weight: 0.0
+    gate_balance_weight: 0.0
+    tower_orthogonality_weight: 0.0
+    group_id: null
+    hidden_activations: relu
+    learning_rate: 0.001
+    loss: [binary_crossentropy, binary_crossentropy]
+    metrics: [logloss, AUC]
+    model: MMoE
+    model_root: ./checkpoints/
+    monitor: AUC
+    monitor_mode: max
+    net_dropout: 0.0
+    net_regularizer: 0.0
+    num_experts: 8
+    num_tasks: 2
+    num_workers: 3
+    optimizer: adam
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 42
+    shuffle: true
+    task: [binary_classification, binary_classification]
+    tower_hidden_units: [128, 64]
+    tower_dropout: 0.1
+    use_features: null
+    verbose: 1
+    uncertainty_weighting: false
+    deterministic: true
+
+MMoE_profile_a:
+    dataset_id: ctr_cvr_profile_a
+    embedding_dim: 16
+    transformer_layers: 2
+    transformer_heads: 4
+    transformer_dropout: 0.1
+    transformer_dim_feedforward: 256
+
+MMoE_profile_b:
+    dataset_id: ctr_cvr_profile_b
+    embedding_dim: 24
+    transformer_layers: 2
+    transformer_heads: 4
+    transformer_dropout: 0.1
+    transformer_dim_feedforward: 384
+
+MMoE_profile_c:
+    dataset_id: ctr_cvr_profile_c
+    embedding_dim: 32
+    transformer_layers: 3
+    transformer_heads: 4
+    transformer_dropout: 0.1
+    transformer_dim_feedforward: 512
+    cvr_weight: 1.4
+
+MMoE_profile_c_balanced:
+    dataset_id: ctr_cvr_profile_c
+    embedding_dim: 32
+    transformer_layers: 3
+    transformer_heads: 4
+    transformer_dropout: 0.1
+    transformer_dim_feedforward: 512
+    cvr_weight: 1.65
+    gate_entropy_weight: 0.005
+    gate_balance_weight: 0.01
+    tower_orthogonality_weight: 0.001
+
+MMoE_profile_soft:
+    dataset_id: ctr_cvr_profile_c
+    model: MMoE_SOFT
+    embedding_dim: 32
+    epochs: 3
+    monitor: {"is_installed_AUC": 1.0, "is_clicked_AUC": 0.3}
+    soft_tau: 100000
+    soft_weight: 0.01
+
+MMoE_fl_profile:
+    dataset_id: federated_ctr_cvr
+    embedding_dim: 24
+    transformer_layers: 2
+    transformer_heads: 4
+    transformer_dropout: 0.1
+    transformer_dim_feedforward: 384
